@@ -22,39 +22,32 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
+        <a href="index.php">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Home</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+         <span class="tooltip">Home</span>
       </li>
       <li>
-       <a href="#">
+       <a href="login.php">
          <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
+         <span class="links_name">Login</span>
        </a>
-       <span class="tooltip">User</span>
+       <span class="tooltip">Login</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-chat' ></i>
-         <span class="links_name">Messages</span>
+         <span class="links_name">Messaggi</span>
        </a>
-       <span class="tooltip">Messages</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Analytics</span>
-       </a>
-       <span class="tooltip">Analytics</span>
+       <span class="tooltip">Messaggi</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-folder' ></i>
-         <span class="links_name">File Manager</span>
+         <span class="links_name">Categorie</span>
        </a>
-       <span class="tooltip">Files</span>
+       <span class="tooltip">Categorie</span>
      </li>
      <li>
        <a href="contact.php">
@@ -66,16 +59,16 @@
      <li>
        <a href="#">
          <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
+         <span class="links_name">Preferiti</span>
        </a>
-       <span class="tooltip">Saved</span>
+       <span class="tooltip">Preferiti</span>
      </li>
      <li>
        <a href="#">
          <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
+         <span class="links_name">Impostazioni</span>
        </a>
-       <span class="tooltip">Setting</span>
+       <span class="tooltip">Impostazioni</span>
      </li>
      <li class="profile">
          <div class="profile-details">
@@ -88,6 +81,8 @@
   </div>
   <section class="home-section">
       <div class="text"></div>
+
+
 
 </body>
 </html>

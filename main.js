@@ -43,27 +43,87 @@ window.addEventListener('scroll', function() {
 //--- INGRANDISCI IMMAGINE ---
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Seleziona tutte le immagini dentro le card
+   
     const immaginiGriglia = document.querySelectorAll('.item img, div[class*="item"] img');
 
     immaginiGriglia.forEach(img => {
-        // Al click sull'immagine, apri il lightbox
+        
         img.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evita conflitti
+            e.stopPropagation(); 
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
 
-            // Imposta l'src dell'immagine grande uguale a quella cliccata
+            
             lightboxImg.src = this.src;
             
-            // Mostra il modale (passando a flex per centrarlo)
+            
             lightbox.style.display = 'flex';
         });
     });
 });
 
-// Funzione per chiudere il lightbox quando si clicca sullo sfondo o sull'immagine
+
 function chiudiLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.style.display = 'none';
 }
+
+//---FAVORITE BTN---
+
+document.addEventListener("DOMContentLoaded", () => {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const items = document.querySelectorAll(".item");
+
+    items.forEach((item, index) => {
+        const img = item.querySelector("img");
+        if (!img) return;
+
+        const imgSrc = img.src;
+        const imgId = "img-" + index; 
+
+        
+        const btn = document.createElement("button");
+        btn.className = "favorite-btn";
+        btn.setAttribute("aria-label", "Aggiungi ai preferiti");
+
+        
+        const isFavorite = favorites.some(fav => fav.src === imgSrc);
+        if (isFavorite) {
+            btn.classList.add("active");
+            btn.innerHTML = '<i class="fa-solid fa-heart" style="color: #ff3b30;"></i>';
+        } else {
+            btn.innerHTML = '<i class="fa-regular fa-heart"></i>';
+        }
+
+        
+        item.appendChild(btn);
+
+       
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const icon = btn.querySelector("i");
+            const existingIndex = favorites.findIndex(fav => fav.src === imgSrc);
+
+            if (existingIndex > -1) {
+                
+                favorites.splice(existingIndex, 1);
+                btn.classList.remove("active");
+                icon.classList.remove("fa-solid");
+                icon.classList.add("fa-regular");
+                icon.style.color = "";
+            } else {
+                
+                favorites.push({ id: imgId, src: imgSrc });
+                btn.classList.add("active");
+                icon.classList.remove("fa-regular");
+                icon.classList.add("fa-solid");
+                icon.style.color = "#ff3b30";
+            }
+
+            
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        });
+    });
+});
